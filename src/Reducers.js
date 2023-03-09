@@ -19,6 +19,9 @@ export const customReducer = createReducer(initialState, {
   decrement: (state, action) => {
     state.c -= 1;
   },
+  reset:(state,action)=>{
+    state.c=0
+  }
 });
 
 

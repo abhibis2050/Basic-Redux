@@ -14,7 +14,7 @@ const updateStatus=(status)=>{
 
 const updateAge=(age)=>{
     dispatch({
-        type:"UPDATE_AGE",
+        type:" ",
         payload:age
     })
 }

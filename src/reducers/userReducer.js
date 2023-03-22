@@ -1,4 +1,5 @@
-import { createReducer, createSlice } from "@reduxjs/toolkit";
+import { createReducer } from "@reduxjs/toolkit";
+import { updateStatusAction } from "../actions";
 
 const initialState={
     name:"Abhisek",
@@ -7,7 +8,22 @@ const initialState={
 }
 
 export default createReducer(initialState,(builder)=>{
-    builder.addCase("UPDATE_STATUS",(state,action)=>{
+
+    // builder.addCase("UPDATE_STATUS",(state,action)=>{
+    //     state.status=action.payload
+    // })
+
+    builder.addCase("UPDATE_AGE",(state,action)=>{
+        state.age=action.payload
+    })
+
+    //reusing the component of action 
+    builder.addCase(updateStatusAction,(state,action)=>{
         state.status=action.payload
+    })
+
+    
+    builder.addCase("UPDATE_Name",(state,action)=>{
+        state.name=action.payload
     })
 })

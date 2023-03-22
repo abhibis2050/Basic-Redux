@@ -23,7 +23,7 @@ export default createReducer(initialState,(builder)=>{
     })
 
     
-    builder.addCase("UPDATE_Name",(state,action)=>{
+    builder.addCase("UPDATE_NAME",(state,action)=>{
         state.name=action.payload
     })
 })

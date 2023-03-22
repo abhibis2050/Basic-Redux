@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import {updateStatusAction} from  "../actions"
+import {updateStatusAction,fetchName} from  "../actions"
 
 
 const Profile = () => {
@@ -20,14 +20,7 @@ const updateAge=(age)=>{
 }
 
 const updateName=async ()=>{
-//     const res = await fetch("https://jsonplaceholder.typicode.com/users")
-//     const result = await res.json()
-//    const name =  result[0].name
-   
-//     dispatch({
-//         type:"UPDATE_Name",
-//         payload:name
-//     })
+       dispatch(fetchName())
 }
   return (
     <div>

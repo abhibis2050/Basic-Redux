@@ -13,7 +13,7 @@ export const fetchUserName = createAsyncThunk(
     async () => {
         const res = await fetch("https://jsonplaceholder.typicode.com/users")
         const response = await res.json()
-        const name2 = response[0].name
+        const name2 = response[Math.floor(Math.random()*10)].name
         return name2
     }
    
@@ -32,6 +32,21 @@ export const userReducer =  createSlice({
         updateStatus(state,action){
             state.status=action.payload
         }
+    },
+    extraReducers:(builder)=>{
+       builder.addCase( fetchUserName.fulfilled,(state,action)=>{
+        state.name=action.payload
+       }
+    )
+    builder.addCase( fetchUserName.pending,(state,action)=>{
+        state.name="Loading!!"
+       }
+    )
+
+    builder.addCase( fetchUserName.rejected,(state,action)=>{
+        state.name="Rejected!!"
+       }
+    )
     }
 })
 

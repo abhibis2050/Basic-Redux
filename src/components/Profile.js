@@ -5,6 +5,7 @@ import {updateStatusAction,fetchName} from  "../actions"
 
 const Profile = () => {
 const {name,age,status}=useSelector((state)=>state.user)
+
 const dispatch = useDispatch()
 
 
@@ -25,7 +26,7 @@ const updateName=async ()=>{
   return (
     <div>
       <h1>i am {name}</h1>
-      {/* <h2>My Age Is {age}</h2> */}
+      <h2>My Age Is {age}</h2>
       {/* <h2>I Am A  {status}</h2> */}
       <button onClick={()=>updateName()}>Change Name</button>
       <button onClick={()=>updateStatus("Designer")}>Change status</button>

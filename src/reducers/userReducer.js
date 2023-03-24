@@ -30,7 +30,8 @@ export const userReducer =  createSlice({
             state.age=action.payload
         },
         updateStatus(state,action){
-            state.status=action.payload
+            // console.log(action.payload.status);
+            state.status=action.payload.status
         }
     },
     extraReducers:(builder)=>{

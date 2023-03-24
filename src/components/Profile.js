@@ -19,7 +19,7 @@ const changeName=()=>{
       <h2>My Age Is {age}</h2>
       <h2>I Am A  {status}</h2>
       <button onClick={()=>changeName()}>Change Name</button>
-      <button onClick={()=>dispatch(updateStatus("Graphic Desighner"))}>Change status</button>
+      <button onClick={()=>dispatch(updateStatus({status:"Graphic Desighner"}))}>Change status</button>
       <button onClick={()=>dispatch(updateAge(26))}>Change Age</button>
     </div>
   )

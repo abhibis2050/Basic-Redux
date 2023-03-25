@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import userReducer from "./reducers/userReducer";
 import userSaga from "./sagas/userSaga";
 import jokeReducers  from "./reducers/jokesReducer";
+import rootSaga from "./sagas/rootsaaga";
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware()
@@ -16,4 +17,4 @@ middleware:(getDefaultMiddleware)=>[...getDefaultMiddleware(),sagaMiddleware]
 })
 
 // then run the saga
-sagaMiddleware.run(userSaga)
+sagaMiddleware.run(rootSaga)

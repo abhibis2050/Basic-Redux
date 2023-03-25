@@ -3,16 +3,23 @@ import { useDispatch,useSelector } from 'react-redux'
 
 
 const Jokes = () => {
+  const{jokes}=useSelector((state)=>{
+    console.log(state);
+    return state.jokes
+  }
+  )
+ 
     const dispatch = useDispatch()
 
-    const jokes = ()=>{
-        dispatch({type:"getJokes"})
+    const getjokes = ()=>{
+        dispatch({type:"ADD_JOKES"})
     }
     
     
   return (
     <div>
-      <button onClick={()=>jokes()}>Jokes</button>
+      <h2>Todays Joke ----{jokes}</h2>
+      <button onClick={()=>getjokes()}>Jokes</button>
     </div>
   )
 }

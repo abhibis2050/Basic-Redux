@@ -1,20 +1,22 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import {updateJokes}  from '../reducers/jokesReducer';
 
 
 
-const fetchjokes=async()=>{
+const fetchjokesapi=async()=>{
    const res = await fetch("https://api.chucknorris.io/jokes/random")
-   const result = res.json()
-   console.log(result);
+   const result = await res.json()
+//    console.log(result);
    return result.value
 }
 
 
-function*changeAge(){
+function*fetchjokes(){
 
     try {
-        const joke = yield fetchjokes()
-        yield put({type:"UPLOAD_AGE_SUCCESS",payload:joke})
+        const joke = yield fetchjokesapi()
+        console.log(joke,"<--------------joke");
+        yield put(updateJokes(joke))
         
     } catch (error) {
         console.log(error);
@@ -24,7 +26,7 @@ function*changeAge(){
 
 
 function*jokeSaga(){
-yield takeEvery("getJokes",fetchjokes)
+yield takeEvery("ADD_JOKES",fetchjokes)
 }
 
 
